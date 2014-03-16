@@ -116,9 +116,14 @@ In this paper, we aim to show our developed system that aims to solve  problems 
 
 
 \section{System Architecture}
+\begin{figure*}
+\centering
+\includegraphics[width=1.9\columnwidth]{system}
+\caption{{A} Single individual setup with dual extended multi touch monitor at the right side (B) 3 person group setup with a larger monitor at the center}
+\label{fig:figure1}
+\end{figure*}
 
-
-\subsection{Hardware Design}
+\subsection{Hardware Setup}
 
 
 We designed a three-person seating arrangement with synchronous access for this experiment. The system can accommodate 4 or more individuals, and allows an asynchronous option when remote access is required. The current setup demonstrates what we imagine will be the most common use of the system, to facilitate face-to-face Affinity Diagram creation meetings for small teams. 
@@ -131,12 +136,6 @@ We designed a three-person seating arrangement with synchronous access for this 
 \end{itemize}
 
 
-\begin{figure*}
-\centering
-\includegraphics[width=1.9\columnwidth]{system}
-\caption{{A} Single individual setup with dual extended multi touch monitor at the right side (B) 3 person group setup with a larger monitor at the center}
-\label{fig:figure1}
-\end{figure*}
 
 \subsection{Software design}
 
@@ -145,7 +144,19 @@ The system's software was developed using C\#, mainly Microsoft's .Net 4.5  fram
 
 
 \subsubsection{Private Space Interface}
+
 The interface is designed to maximize visibility and navigation capabilities for users viewing both their own points and others' points. There are 5 designed areas in the private dashboard. The private space interface is a workspace intended for users to create points by inputting ideas and information. Figure 1 shows the 3 column dashboard: in the top right hand users can select different topics and switch from one topic to another; the middle column lists all the opinion titles written by each participant; the bottom right corner is where users select and view different participants' points; the lower center column lists the titles of other participants' points. Finally, the full screen right-hand column is where users input their own points. Users can switch freely between the input dashboard and a browser window when they are searching for supporting material.
+
+
+\item Discussion Room - Like all gaming technology, each discussion  topic are treated as a room.  Users will have to write their name and select the pre-determine color they wish to have. Once selecting their identity, they will choose the discussion room they intend to participate and upon entering each users have their own color identity to present them 
+\item  Input and Navigating-To optimize the ease of navigation and ease of inputting text, 3 column design interface are used. The first column is divided between topic selection on the top and bottom is the users election while in the top second column show individual idea points and bottom second column show others idea points . The third column will have the most space for inputting the ideas
+\item Idea input - Input form are divided into 3 input  areas, First input is the title of their ideas, Second is the description of their ideas and  the third input is the source  attached to support their ideas
+\item Attachment System - We observed early on the development phase  that users often search more information about their ideas and on the Internet and uses sources to verify or affirm  their ideas. To support this behavior, we create a source attachment function to give users ability to quickly attach article or media sources from the Internet to their ideas. 
+\begin{itemize}
+  \item  Media Attachment - We choose the familiar copy and paste functions to upload images from the web, while browsing on the Internet browser users are able to right click the images they wish to upload and copy and paste the image url to our media text box in the system private input form, The code will automatically detect the presence of the media and its traditional format ( jpg, bmp) . If the url link is not in the right format an error message will be shown, but if the media is detected with the right image format,  thumbnail of the attached images will be shown.
+  \item Screen shot - Another function is screen shot function, We observe that in some website users would like to capture an areas of the website (images plus text ) or graph that is not compatible with the standard image format ( video screen shot) , thus using the screen shot function. After pressing the screen shot function in the system, the screen will be brought to the main web browser where users can scroll up and down the desired screen. click next will initiate the screen shot capture where users need to drag from top left to bottom right the desired area of the screen they wish to capture, once letting go the drag. Automatically the screen shot thumbnail will be displayed at the private input screen. this indicated that screenshot capture is successful. 
+\end{itemize}
+
 
 \begin{figure}
 \centering
@@ -155,18 +166,6 @@ The interface is designed to maximize visibility and navigation capabilities for
 \end{figure}
 
 \begin{itemize}
-
-
-\item Discussion Room - Like all gaming technology, each discussion  topic are treated as a room.  Users will have to write their name and select the pre-determine color they wish to have. Once selecting their identity, they will choose the discussion room they intend to participate and upon entering each users have their own color identity to present them 
-\item  Input and Navigating-To optimize the ease of navigation and ease of inputting text, 3 column design interface are used. The first column is divided between topic selection on the top and bottom is the users election while in the top second column show individual idea points and bottom second column show others idea points . The third column will have the most space for inputting the ideas
-\item Idea input - Input form are divided into 3 input  areas, First input is the title of their ideas, Second is the description of their ideas and  the third input is the source  attached to support their ideas
-\item Attachment System - We observed early on the development phase  that users often search more information about their ideas and on the Internet and uses sources to verify or affirm  their ideas. To support this behavior, we create a source attachment function to give users ability to quickly attach article or media sources from the Internet to their ideas. 
-\begin{itemize}
-  \item  Media Attachment - We choose the familiar copy and paste functions to upload images from the web, while browsing on the Internet browser users are able to right click the images they wish to upload and copy and paste the image url to our media text box in the system private input form, The code will automatically detect the presence of the media and its traditional format ( jpg, bmp) . If the url link is not in the right format an error message will be shown, but if the media is detected with the right image format,  thumbnail of the attached images will be shown.
-
-  \item Screen shot - Another function is screen shot function, We observe that in some website users would like to capture an areas of the website (images plus text ) or graph that is not compatible with the standard image format ( video screen shot) , thus using the screen shot function. After pressing the screen shot function in the system, the screen will be brought to the main web browser where users can scroll up and down the desired screen. click next will initiate the screen shot capture where users need to drag from top left to bottom right the desired area of the screen they wish to capture, once letting go the drag. Automatically the screen shot thumbnail will be displayed at the private input screen. this indicated that screenshot capture is successful. 
-\end{itemize}
-
 The private space interface allows users to easily create points related to a topic and populate them with information using familiar cut-and-paste mechanics. A basic interaction process would involve selecting the topic from the Topic window (pictured in Figure 1) and creating a new point in the User Point window, which creates a new card on the Public Information space related to that topic. Users can be identified as the author of a point by the color of the card. After creating a point, users can illustrate their point by adding supplementary information, images, and links in the Private Information Input window. When they are done adding information, the card is complete and they can create a new point, or browse other users' points, just as in the analog version of AD creation.
 
 \subsubsection{Public Space Interaction}
@@ -182,16 +181,16 @@ In the public space interaction, points that are written on the private space ar
 In our observation, we strongly hypothesize that to achieve collaboration, the public board has to be synchronized smoothly across different users. To achieve the goal, we utilize the core technology from the massive multi player gaming (MMOG) system which uses network socket and adapt the technology to suit our system. Participants which uses our system are treated like players in the MMOG system where we give each participants an identity and manipulation capabilities such as idea boxes movement and details enlargement. These manipulation input command are constantly sent to the server ( Up to 15 input command per second )  to the server and broadcast ( Up to 15 output command per second ) to other clients to update.  The low latency will determine the smoothness of the control and manipulation response. 
 
 
-In addition there are about 4 main features in the public space that allows users to conduct affinity diagram  that can allow the users to do in the public dashboard they are 
+In addition there are about 5 main features in the public space that allows users to conduct affinity diagram  that can allow the users to do in the public dashboard they are 
 
 \begin{itemize}
 
 
-\item  \textbf{In-depth Details Card expansion}   - All the cards displayed only the title of the users points, there is a function to expand the card details by double clicking on the card, This will trigger a windows that display all of the in-depth details of the card include the description, attached links and sources. 
-\item  \textbf{Presentation Mode} -The card expansion function are individual controlled, whenever it is appropriate, users can synchronized the card expansion function with other clients, this function is an aid to help users control and present their points easily, the synchronized card expansion help users to use the expansion of the card 
+\item  \textbf{In-depth Details Card expansion}   - All the cards displayed only the title of the users ideas, there is a function to expand the card details by double clicking on the card, This will trigger a windows that display all of the in-depth details of the card include the description, attached links and sources. 
+\item  \textbf{Presentation Mode} -The card expansion function are individual controlled, whenever it is appropriate, users can synchronized the card expansion function with other clients, this function is an aid to help users control and present their ideas easily, the synchronized card expansion help users to use the expansion of the card 
 \item \textbf{Grouping and Linking} -  Grouping and linking is a function where users are can group using a circular motion, if the users initiate the group button and initiate a circular motion between numerous card , a circular line is displayed to show the grouped card and these grouped card can be move in various direction, another important part is the reorganize the group function, users can move any card within the group and using 2 corner touch algorithm where if any 2 corner of the card touch the group it will initiate  a regroup function that allow users to insert a new card into the group and vice versa. linking is also done when users initiate the link function and click the two card in sequence  
-\item \textbf{Vector Free Draw system} - The free Draw System is a function where, we users can freely on the public space unlike typical drawing system, we used a new methods called vectored drawing, where the draw divided into vectored, Each time users draw, users need to initate a finish draw function where the draw are converted to object vector , where users can move resize the draw, this is designed to give flexibility for the users to organize the draw around 
-\item \textbf{Commenting System} - This new function is allowing users to comment on each other points to ask question and write  thoughts on the system, users can expand the card and write comments on others person points . In addition, notification algorithm are created to notify users of a new comment coming in , this allow users to have a real-time exchanges of comment with each other. 
+\item \textbf{Vector Free Draw system} - The free Draw System is a function where, we users can freely on the public space unlike typical drawing system, we used a new methods called vectored drawing, where the draw divided into vectored, Each time users draw, users need to initiate a finish draw function where the draw are converted to object vector , where users can move resize the draw, this is designed to give flexibility for the users to organize the draw around 
+\item \textbf{Commenting System} - This new function is allowing users to comment on each other ideas to ask question and write  thoughts on the system, users can expand the card and write comments on others person ideas . In addition, notification algorithm are created to notify users of a new comment coming in , this allow users to have a real-time exchanges of comment with each other. 
 
 
 
@@ -200,9 +199,9 @@ We identify four main area of activities  that is commonly used  in typical grou
 
 \begin{enumerate}
 \item Idea Creation -Idea creation is an activities where users create a new ideas based on his or her perception on a single topic. If given internet access, there are two common behavior during the idea creation phase. One is start  writing immediately and search the internet to verify their ideas and another behavior is the search for idea inspiration on the internet and write the ideas based on their surfing. Nevertheless, both behavior benefited by attaching the internet sources ( images or url link ) to their ideas. 
-\item Presenting - Despite the ideas are shown visible by other users, It is more convincing that the idea is explain by the creator, thus our goal is to build a system that needs to make the users explain their points easily. Using common sense, that the availability of a source to support the ideas will increase the confidence of each users. Thus creating a system that allows users to control and broadcast their sources during explanation phase will definitely increase ease of explanation and increase understanding level of others. 
-\item Commenting and Exchange Ideas -Each ideas are unique in nature and questions and critics are asked regarding points. Thus we think that it is important that users can easily navigate to specific points and leave a comment. We also noticed that it is important that users are notified when there is a new comment written on their points. so users are able to response to the comments written by other users. 
-\item Collaborative Affinity Diagram -To organize all the users ideas to give a common overview of the opinions of the group, we utilize the methods called affinity diagram to organize the ideas. Affinity diagram is a simple methods that groups and link similar and related points and ideas to give a better clarity to the simplicity of the overall group ideas. The clarity of the group ideas is the precursor for any problem solving tasks and having strong common overview will help participation design activities such as solving problem or creating solution more effectively. 
+\item Presenting - Despite the ideas are shown visible by other users, It is more convincing that the idea is explain by the creator, thus our goal is to build a system that needs to make the users explain their ideas easily. Using common sense, that the availability of a source to support the ideas will increase the confidence of each users. Thus creating a system that allows users to control and broadcast their sources during explanation phase will definitely increase ease of explanation and increase understanding level of others. 
+\item Commenting and Exchange Ideas -Each ideas are unique in nature and questions and critics are asked regarding ideas. Thus we think that it is important that users can easily navigate to specific ideas and leave a comment. We also noticed that it is important that users are notified when there is a new comment written on their ideas. so users are able to response to the comments written by other users. 
+\item Collaborative Affinity Diagram -To organize all the users ideas to give a common overview of the opinions of the group, we utilize the methods called affinity diagram to organize the ideas. Affinity diagram is a simple methods that groups and link similar and related ideas and ideas to give a better clarity to the simplicity of the overall group ideas. The clarity of the group ideas is the precursor for any problem solving tasks and having strong common overview will help participation design activities such as solving problem or creating solution more effectively. 
 \end{enumerate}
 
 \subsection{Methodologies}
@@ -219,14 +218,14 @@ We setup two type of idea exchange environment named as Analog methods and Digit
 
 \subsection{Experiment Procedure}
 
-To prove that our system helps users to perform basic tasks in idea exchanging activities easier, we have conducted a comparison studies between traditional methods of idea exchanging  with our system. We choose a 3 person experiment which depicts the odd number to prevent group forming within the experiment. ( If there is 4-person, there is a possibility that 2 person groups are formed ). We divide the experiment in 4 commonly perform tasks in a typical idea exchange activities and measure the usability.  We give users a two equally popular topic in our host university as the topics of discussion. We also divide the experiment into 4 task
+To help us determine which of the two condition has higher usability rating, we perform the comparison studies between  traditional methods of ideas exchanging  with our system. We choose a 3 person experiment which depicts the odd number to prevent group forming within the experiment. ( If there is 4-person, there is a possibility that 2 person groups are formed ). We divide the experiment in 4 commonly perform tasks in a typical opinion exchange activities and measure the usability.  We give users a two equally popular topic in our host university as the topics of discussion. We also divide the experiment into 4 task
 
 Participants were welcomed and introduced to the purpose of the study. They were then given brief instructions on using the Digital Affinity Diagram System for about 30 minutes, and another 30 minutes to try out the system in the tutorial mock up scenario to become familiar with the systems and discover system functionality. The experiment schedule and task was then explained to the group before starting the experiment. 
 
 \begin{itemize}
-\item \textbf{Task 1- 5 ideas and attach sources} - Each users are given 30 minutes to create 5 ideas on the topic. They are allowed freedom of access to the internet to search attach their ideas. 
-\item \textbf{Task 2 - Present  ideas to others } - Each users are given time to present and explain their points to the rest of the participants. 
-\item \textbf{Task 3 - Exchanging comment with each other} - The group is given 20 minutes to comment on others points and at the same time reply any comment posted to them. They are asked to write as much comment as possible across all the ideas until the time is up. 
+\item \textbf{Task 1- 5 ideas and attach sources} - Each users are given 30 minutes to create 5 ideas on the topic. They are allowed freedom of access to the Internet to search attach their ideas. 
+\item \textbf{Task 2 - Present  ideas to others } - Each users are given time to present and explain their ideas to the rest of the participants. 
+\item \textbf{Task 3 - Exchanging comment with each other} - The group is given 20 minutes to comment on others ideas and at the same time reply any comment posted to them. They are asked to write as much comment as possible across all the ideas until the time is up. 
 
 \item \textbf{Task 4- Affinity Diagram} - After completing the comment exchange task, they are then ask to collaborate to create an affinity diagram using the ideas created earlier, they are asked to group similar ideas and also link related ideas. 
 \end{itemize}
@@ -251,14 +250,15 @@ All experiment subject need to complete all 4 tasks in both analog and digital m
 \begin{figure}[!h]
 \centering
 \includegraphics[width=1.1\columnwidth]{attach}
-\caption{Ease of Attachment and Eease of showing points leads to higher perspective level of understanding}
+\caption{Ease of Attachment and Ease of showing ideas leads to higher perspective level of understanding}
 \label{fig:figure1}
 \end{figure}
 
 
 
 \section{Measurement}
-In this experiment we tried to measure the usability of the system in making them create points. 
+
+In this experiment we tried to measure the usability of the system in making them create ideas. 
 Those who participate on the experiment  took a rating scale questionnaire to evaluate the ease of completing the task based on two methods. The rating scale ranges  from 1 being most negative and 5 being most positive.  Based on the self rating survey Users must evaluate their perception on both analog and digital and give the score on the following 9 questions . 
 
 
@@ -273,10 +273,10 @@ Those who participate on the experiment  took a rating scale questionnaire to ev
 
 
 \begin{enumerate}
-  \item Ease of Point Creation- This question is asked on whether how easy is the users feel when creating any new points 
-  \item Editing Points - This question asked about how easy is it for users when editing the content of the points 
+  \item Ease of Idea Creation- This question is asked on whether how easy is the users feel when creating any new Ideas 
+  \item Editing ideas - This question asked about how easy is it for users when editing the content of the ideas 
   \item Attaching Source - This question compared the  usability by users in using attached sources in digital compared using printing sources 
-  \item Navigating Points - This question is about navigating between own points and other points. 
+  \item Navigating ideas - This question is about navigating between own points and other points. 
   \item Showing Source - This question is about how easy is it to show points ans resources to other users 
   \item Writing Comments - This question ask about how easy is it to write comments 
   \item Replying Comments -This question ask about how easy is it to reply  comments 
